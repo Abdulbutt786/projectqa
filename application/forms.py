@@ -14,13 +14,13 @@ class ReviewForm(FlaskForm):
     genre_movie = SelectField("Dog Breed", choices=[
         ("action", "Action"), 
         ("horror", "Horror"), 
-        ("thriller", "Thriller")
+        ("thriller", "Thriller"),
         ("comedy", "Comedy"), 
         ("romance", "Romance"), 
-        ("scifi", "Sci-fi")
-        ("other", "Other"), 
+        ("scifi", "Sci-fi"),
+        ("other", "Other")
         ])
-    review_description= StringField("Enter your review of the movie (Max 750 words) ")
+    review_description= StringField("Enter your review of the movie (Max 750 words)")
     date_watched_movie = DateField("Enter the date you watched the movie")
     submit = SubmitField ("Submit your review")    
     

@@ -16,4 +16,4 @@ class Review(db.Model):
     review_rating = db.Column(db.String(2), nullable = False)
     review_description = db.Column(db.String(500), nullable = False)
     review_date = db.Column(db.DateTime, nullable = False, default = datetime.now)
-    User = db.Column(db.Integer, db.ForeignKey("User.id"), nullable = False)
+    User = db.Column(db.Integer, db.ForeignKey("user.id"), nullable = False)
