@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>Registration form: Please fill out the form:</h2>
+
+<div class='form'>
+    <form method='POST' action=''>
+    {{ form.hidden_tag() }} 
+    <br>
+    {{ form.first_name.label }}: {{ form.first_name }}
+    <br>
+    {{ form.last_name.label}}: {{ form.last_name }}
+    <br>
+    {{ form.email_address.label }}: {{ form.email_address }}
+    <br>
+    {{ form.phone_number.label }}: {{ form.phone_number }}
+    <br>
+    {{ form.submit }}
+</form></div>
+{% endblock body %}
+</html>
+

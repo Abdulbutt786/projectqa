@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h3></h3>
+{% for user in all_users %}
+
+<p>
+    First name: {{ user.first_name }}<br>
+    Last name: {{ user.last_name }}<br>
+    Email address {{ user.email_address }}<br>
+    Phone number {{ user.phone_number }}<br>
+    <a href = "/create_review/{{user.id}}"> Add a review </a>
+    <a href = "/allmovierev/{{user.id}}"> View your Reviews </a>
+
+
+</p> 
+{%endfor%}
+
+{% endblock body %}
