@@ -5,17 +5,19 @@ from application.forms import ReviewForm
 from application.models import User, Review
 from flask import render_template, request, redirect, url_for
 
+# home page
 @app.route('/')
 def index():
     all_users = User.query.all()
     return render_template('index.html', all_users = all_users)
 
-
+# shows all movies reviews
 @app.route("/allmovierev/<int:user_id>")
 def allreviews(user_id):
     submitted_reviews=Review.query.filterby(user_id = user_id).all
     return render_template("usermovierev.html", submitted_reviews= submitted_reviews)
 
+# creatinguser
 @app.route("/new_user", methods = ["GET", "POST"])
 def new_user():
     form = UserForm()
@@ -26,7 +28,8 @@ def new_user():
         return redirect(url_for('index'))
     return render_template("newuser.html", form = form)
 
-@app.route("/create_review/<user_id>")
+# createreview
+@app.route("/create_review/<int:user_id>")
 def create_review(user_id):
     form= ReviewForm()
     if request.method == "POST":
@@ -34,6 +37,31 @@ def create_review(user_id):
         db.session.add(review)
         db.session.commit()
     return render_template("create_review.html")
+
+# deletepage
+@app.route("/deletereview/<int:user_id>")
+def delete_review(id):
+    delete_review = Review.query.get(id)
+    db.session.delete(delete_review)
+    db.session.commit()
+    return redirect(url_for('index'))
+
+# updatepage
+@app.route('/update_review/<int:id>', methods = ['GET', 'POST'])
+def update_review(id):
+    review = Review.query.get(id)
+    form = ReviewForm()
+# gets all the reviews by the id off the user and lists them 
+    if request.method == "POST":
+        
+
+
+
+
+
+
+
+
 
 
 
