@@ -15,5 +15,5 @@ class Review(db.Model):
     genre = db.Column(db.String(10), nullable = False)
     review_rating = db.Column(db.String(2), nullable = False)
     review_description = db.Column(db.String(500), nullable = False)
-    review_date = db.Column(db.DateTime, nullable = False, default = datetime.now)
+    date_watched = db.Column(db.DateTime, nullable = False, default = datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable = False)

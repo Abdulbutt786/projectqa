@@ -1,26 +1,23 @@
 {% extends 'base.html' %}
+<html>
 
 {% block body %}
-<h3> PLEASE ENTER YOUR REVIEW</h3>
-{% for review in all_reviews %}
+<h2> PLEASE ENTER YOUR REVIEW</h2>
 
-<div class='form'>
-    <form method='POST' action=''>
+<form method="POST" action=" ">
     {{ form.hidden_tag() }} 
     <br>
     {{ form.movie_name.label}}: {{ form.movie_name }}
     <br>
-    {{ form.genre_movie.label}}: {{ form.genre_movie }}
+    {{ form.genre.label}}: {{ form.genre }}
     <br>
     {{ form.review_description.label}}: {{ form.review_description }}
     <br>
-    {{ form.date_watched_movie.label}}: {{ form.date_watched_movie }}  
+    {{ form.review_rating.label}}: {{ form.review_rating }}
+    <br>
+    {{ form.date_watched.label}}: {{ form.date_watched }}  
     <br>
     {{ form.submit }}
-
-</form></div>
+</form>
 {% endblock body %}
 </html>
-
-
-

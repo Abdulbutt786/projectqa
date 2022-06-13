@@ -11,7 +11,7 @@ class UserForm(FlaskForm):
 
 class ReviewForm(FlaskForm):
     movie_name= StringField("Enter the movie name")
-    genre_movie = SelectField("Dog Breed", choices=[
+    genre = SelectField("Genre", choices=[
         ("action", "Action"), 
         ("horror", "Horror"), 
         ("thriller", "Thriller"),
@@ -21,6 +21,7 @@ class ReviewForm(FlaskForm):
         ("other", "Other")
         ])
     review_description= StringField("Enter your review of the movie (Max 750 words)")
-    date_watched_movie = DateField("Enter the date you watched the movie")
+    review_rating = StringField ("Enter your rating off the move out of 10")
+    date_watched = DateField("Enter the date you watched the movie")
     submit = SubmitField ("Submit your review")    
     

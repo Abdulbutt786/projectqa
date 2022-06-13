@@ -29,14 +29,15 @@ def new_user():
     return render_template("newuser.html", form = form)
 
 # createreview
-@app.route("/create_review/<int:user_id>")
+@app.route("/create_review/<int:user_id>",methods=['GET', 'POST'])
 def create_review(user_id):
     form= ReviewForm()
     if request.method == "POST":
-        review = Review(movie_name= form.movie_name.data, genre_movie=form.genre_movie.data, review_description = form.review_description.data,date_watched_movie = form.date_watched_movie.data)
+        review = Review(movie_name= form.movie_name.data, genre=form.genre.data, review_description = form.review_description.data,date_watched = form.date_watched.data)
         db.session.add(review)
         db.session.commit()
-    return render_template("create_review.html")
+        return redirect(url_for ("allmovierev", user_id = user_id))
+    return render_template("create_review.html", form=form)
 
 # deletepage
 @app.route("/deletereview/<int:user_id>")
@@ -53,6 +54,23 @@ def update_review(id):
     form = ReviewForm()
 # gets all the reviews by the id off the user and lists them 
     if request.method == "POST":
+        review.movie_name = form.movie_name.data
+        review.genre = form.genre.data
+        review.review_rating = form.review_rating.data
+        review.review_description = form.review_description.data
+        review.review_date = form.review_date.data
+        db.session.commit()
+        return redirect(url_for('index'))
+    
+    form.movie_name.data = review.movie_name
+    form.genre.data = review.genre
+    form.review_rating.data = review.review_description
+    form.review_description.data = review.review_description
+    form.review_date.data = review.review_date
+
+    return render_template('new_rating.html', form = form)
+
+
         
 
 
