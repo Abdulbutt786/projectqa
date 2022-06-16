@@ -1,5 +1,7 @@
 from application import app, db
 from datetime import datetime
+from wtforms.validators import DataRequired
+
 
 class User(db.Model):
     id = db.Column(db.Integer,primary_key=True)
@@ -15,5 +17,5 @@ class Review(db.Model):
     genre = db.Column(db.String(10), nullable = False)
     review_rating = db.Column(db.String(2), nullable = False)
     review_description = db.Column(db.String(500), nullable = False)
-    date_watched = db.Column(db.DateTime, nullable = False, default = datetime.now)
+    date_watched = db.Column(db.DateTime, nullable = True, default = datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable = False)

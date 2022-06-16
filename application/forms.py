@@ -1,3 +1,4 @@
+from audioop import add
 from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, DateField
@@ -10,6 +11,7 @@ class UserForm(FlaskForm):
     submit = SubmitField ("Submit")
 
 class ReviewForm(FlaskForm):
+    user_id = SelectField ("users", choices=[])
     movie_name= StringField("Enter the movie name")
     genre = SelectField("Genre", choices=[
         ("action", "Action"), 

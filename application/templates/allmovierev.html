@@ -1,16 +1,21 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 
 {% block body %}
-{% for reviews in all_reviews %}
+{% for review in reviews %}
 <p>
 
-    movie: {{ reviews.movie_name}}<br>
-    genre: {{ reviews.genre }}<br>
-    review rating: {{ reviews.review_rating }}<br>
-    review_description: {{ reviews.review_desctiption }}<br>
-    datewatched: {{ reviews.review_date }}<br>
-    
-    
+    movie: {{ review.movie_name}}<br>
+    genre: {{ review.genre }}<br>
+    review rating: {{ review.review_rating }}<br>
+    review_description: {{ review.review_description }}<br>
+    date watched movie: {{ review.date_watched }}<br>
+
+<a href="{{ url_for('delete_review', id=review.id) }}">Delete</a>
+<a href="{{ url_for('update_review', id=review.id) }}">Update</a>
+
+
+
+
 </p>
 {%endfor%}
 {% endblock body %}

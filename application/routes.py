@@ -1,4 +1,3 @@
-from pdb import post_mortem
 from application import app, db
 from application.forms import UserForm
 from application.forms import ReviewForm
@@ -14,8 +13,8 @@ def index():
 # shows all movies reviews
 @app.route("/allmovierev/<int:user_id>")
 def allreviews(user_id):
-    submitted_reviews=Review.query.filterby(user_id = user_id).all
-    return render_template("usermovierev.html", submitted_reviews= submitted_reviews)
+    reviews=Review.query.filter_by(user_id = user_id).all()
+    return render_template("allmovierev.html", reviews= reviews)
 
 # creatinguser
 @app.route("/new_user", methods = ["GET", "POST"])
@@ -32,20 +31,24 @@ def new_user():
 @app.route("/create_review/<int:user_id>",methods=['GET', 'POST'])
 def create_review(user_id):
     form= ReviewForm()
-    if request.method == "POST":
-        review = Review(movie_name= form.movie_name.data, genre=form.genre.data, review_description = form.review_description.data,date_watched = form.date_watched.data)
+    users= User.query.all()
+    for user in users:
+        form.user_id.choices.append((user.id, f"{user.first_name} {user.last_name}"))
+    if request.method == "POST": 
+        review = Review(user_id = form.user_id.data,movie_name= form.movie_name.data, genre=form.genre.data, review_description = form.review_description.data,review_rating = form.review_rating.data,date_watched = form.date_watched.data)
         db.session.add(review)
         db.session.commit()
-        return redirect(url_for ("allmovierev", user_id = user_id))
+        # will take the user to all their reviews which will be listed
+        return redirect(url_for ("allreviews", user_id = user_id))
     return render_template("create_review.html", form=form)
 
 # deletepage
-@app.route("/deletereview/<int:user_id>")
+@app.route("/deletereview/<int:id>")
 def delete_review(id):
-    delete_review = Review.query.get(id)
-    db.session.delete(delete_review)
+    review = Review.query.get(id)
+    db.session.delete(review)
     db.session.commit()
-    return redirect(url_for('index'))
+    return redirect(url_for("index"))
 
 # updatepage
 @app.route('/update_review/<int:id>', methods = ['GET', 'POST'])
@@ -58,17 +61,17 @@ def update_review(id):
         review.genre = form.genre.data
         review.review_rating = form.review_rating.data
         review.review_description = form.review_description.data
-        review.review_date = form.review_date.data
+        review.date_watched = form.date_watched.data
         db.session.commit()
         return redirect(url_for('index'))
     
     form.movie_name.data = review.movie_name
     form.genre.data = review.genre
-    form.review_rating.data = review.review_description
+    form.review_rating.data = review.review_rating
     form.review_description.data = review.review_description
-    form.review_date.data = review.review_date
+    form.date_watched.data = review.date_watched
 
-    return render_template('new_rating.html', form = form)
+    return render_template('create_review.html', form = form)
 
 
         
