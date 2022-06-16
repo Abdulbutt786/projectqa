@@ -101,7 +101,7 @@ class TestReadUser(TestBase):
 class TestReadReview(TestBase):
     def test_rev(self):
         response = self.client.get(
-            url_for('create_review', follow_redirects = True,user_id = "", movie_name = "", genre = "", review_description = "", review_rating = "", date_watched = ""
+            url_for('create_review', follow_redirects = True,user_id = 1, 
         ),data=dict(user_id = "", movie_name = "", genre = "", review_description = "", review_rating = "", date_watched = "" ))
         self.assertIn(b"", response.data)
         self.assertIn(b"", response.data)
