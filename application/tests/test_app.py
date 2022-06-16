@@ -107,6 +107,8 @@ class TestReadReview(TestBase):
         self.assertIn(b"", response.data)
         self.assertIn(b"", response.data)
         self.assertIn(b"", response.data)
+        self.assertIn(b"", response.data)
+
 
 
 
