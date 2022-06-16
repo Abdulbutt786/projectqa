@@ -88,6 +88,28 @@ class TestUpdate(TestBase):
         )
         self.assertIn(b"", response.data)
 
+class TestReadUser(TestBase):
+    def test_user(self):
+        response = self.client.get(
+            url_for('new_user', follow_redirects = True,first_name = "", last_name = "", email_address = "", contact_number = ""
+        ),data=dict(first_name = "", last_name = "", email_address = "", contact_number = ""))
+        self.assertIn(b"", response.data)
+        self.assertIn(b"", response.data)
+        self.assertIn(b"", response.data)
+        self.assertIn(b"", response.data)
+
+class TestReadReview(TestBase):
+    def test_rev(self):
+        response = self.client.get(
+            url_for('create_review', follow_redirects = True,user_id = "", movie_name = "", genre = "", review_description = "", review_rating = "", date_watched = ""
+        ),data=dict(user_id = "", movie_name = "", genre = "", review_description = "", review_rating = "", date_watched = "" ))
+        self.assertIn(b"", response.data)
+        self.assertIn(b"", response.data)
+        self.assertIn(b"", response.data)
+        self.assertIn(b"", response.data)
+
+
+
 
 
 
