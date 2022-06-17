@@ -21,8 +21,6 @@ This contains a flask based CRUD application that I built. This is my first proj
 
 [Known app issues](#Known-app-issues)
 
-[Challenges faced](#Challenges-faced)
-
 [Possible future changes to application](#Possible-future-changes-to-application)
 
 [Conclusion and learning from this project](#Conclusion-and-learning-from-this-project)
@@ -115,33 +113,35 @@ Review Submitted -  This takes them back to a page where they can see the Update
 ### CICD Pipeline
 
 
+
+
+
 ### Known application issues
 
+The process of making the application and implementing jenkins I ran into many issues. I had issues such the form wasn't showing the phone number this was a html issue that was fixed. In addition to that I would say that the main issues were creating the update and delete button. I had many issues with them as the delete button at first wasn't deleting anything. 
 
-### Challenges faced
+Additionally, I had issues with my VM's when the IP kept changing and broke my web hook. I had set up mu VM's to ensure the IP stays the same.
 
-
-
-
-
+Lastly, I was having issues with linking my GCP server to my application and jenkins hence why I still only have the inbuilt database
 
 
+### Possible-future-changes-to-application
+
+If i had more time to complete this project i would focus on the below:
+-Implementing a dashboard and login page
+-Instead off users actually picking their name to link to their reviews having it automatically done
+-Improving the nav bar as the forms currently show inside the navbar. This is a css issue.
+-Finally, I would love to make a better design of my website as its basic at the moment.
+
+### Conclusion-and-learning-from-this-project
+
+This project has been a major learning curve for me. Spending hours on simple error messages and finally finding a solution for them gave me a great sense off satisfaction. I beleive I have created a well rounded application that has touched on the main aspects off the project breif. There is still alot to learn and this project has given me alot off practical experience. In addition, Im able to show people that Im able to create an application and that makes me proud.  
 
 
+### Credits
+
+Due the many extensions we had due to bank holiday and going in week 5 we've had alot off support from many different lecturers all being phenomonel and helping us to their best ability. 
+
+I would like to give special thanks to EARL, LEON AND ADAM for their continued support throughout.
 
 
-
-
-
-
-
-
-
-
-form not showing mobile phoone number for user
-
-when users create account redirect to home page where it shows all users
-
-when they create a new user redirect to homepage
-
-creating buttons so it takes users to their reviews and to create a new one 
