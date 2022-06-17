@@ -97,6 +97,7 @@ class TestReadUser(TestBase):
         self.assertIn(b"", response.data)
         self.assertIn(b"", response.data)
         self.assertIn(b"", response.data)
+        self.assertIn(b"", response.data)
 
 class TestReadReview(TestBase):
     def test_rev(self):
@@ -107,8 +108,6 @@ class TestReadReview(TestBase):
         self.assertIn(b"", response.data)
         self.assertIn(b"", response.data)
         self.assertIn(b"", response.data)
-        self.assertIn(b"", response.data)
-
 
 
 
