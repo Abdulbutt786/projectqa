@@ -113,8 +113,10 @@ Review Submitted -  This takes them back to a page where they can see the Update
 ### CICD Pipeline
 
 
+The picture below shows my pipeline and the process that my application goes through. 
 
 
+https://github.com/Abdulbutt786/projectqa/blob/f19445023af3dceffd748105fdf8493e06baab98/application/Photos/Screenshot%202022-06-17%20at%2016.35.37.png
 
 ### Known application issues
 
