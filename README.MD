@@ -75,6 +75,11 @@ I have attached the pictures below off my tests:
 
 Due to time contraints and the time remaining I had to complete the rest of the coverage I was unable to achieve 100%. But I was very proud I was able to achieve 96% on my first ever project. In addition to this with more learning I will be able to tackle how to tackle the last 4%.
 
+The picture below will show my coverage in a html file. This coverage is after I have deployed my application with jenkins. 
+
+https://github.com/Abdulbutt786/projectqa/blob/20d660703527258682d782a3cfe84d98307ecdd9/application/Photos/Screenshot%202022-06-17%20at%2010.40.37.png
+
+
 ### The application
 This is brief overview off my application how it works, showing you different pages and functions it provides users with. 
 
