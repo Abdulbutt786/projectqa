@@ -14,3 +14,4 @@ db = SQLAlchemy(app)
 
 import application.routes
 
+# ll
